@@ -42,7 +42,7 @@ $(function() {
       [@cms_content_list typeId='2' recommend='1' orderBy='4' channelId='75,76' titLen='25' channelOption='0' dateFormat='yyyy-MM-dd']      
           <ul>
          [#list tag_list as a]
-            <li><a href="${a.url}" target="_blank"><img src="${a.typeImg!}"><h1>[@text_cut s=a.title len=titLen append='...'/]</h1></a></li>
+            <li><a href="${a.url}" target="_blank"><img src="${base}/${a.typeImg!}"><h1>[@text_cut s=a.title len=titLen append='...'/]</h1></a></li>
          [/#list]
           </ul>
          [/@cms_content_list]
