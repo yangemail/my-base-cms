@@ -12,7 +12,7 @@
 	<name>jeecms</name>
 	<url>http://www.jeecms.com/</url>
   </organization>
-  -- remember to change javascript name : jeecmsv9f
+  remember to change javascript name : jeecmsv9f
   -->
   <groupId>com.myproject</groupId>
   <artifactId>myproject</artifactId>
