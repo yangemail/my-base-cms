@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd"
+	default-lazy-init="true">
+
+	<!-- My 标签 -->
+	<bean id="my_cms_channel_list"
+		class="com.ext.cms.action.directive.MyChannelListDirective" />
+
+	<!-- My MANAGER -->
+	<bean id="myChannelMng" class="com.ext.cms.manager.main.impl.MyChannelMngImpl">
+		<property name="deleteCheckerList">
+			<list>
+				<ref bean="contentMng" />
+				<ref bean="cmsTopicMng" />
+				<ref bean="cmsAcquisitionMng" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- My DAO -->
+	<bean id="myChannelDao"
+		class="com.ext.cms.dao.main.impl.MyChannelDaoImpl" />
+</beans>
