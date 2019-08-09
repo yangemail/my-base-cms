@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -422,6 +423,7 @@ public class ChannelMngImpl implements ChannelMng {
 	}
 	
 	@Autowired
+	@Qualifier("channelDao")
 	public void setDao(ChannelDao dao) {
 		this.dao = dao;
 	}
