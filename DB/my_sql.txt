@@ -1,0 +1,21 @@
+select * from jc_channel jc 
+       inner join jc_channel_ext jce 
+       on jc.channel_id = jce.channel_id 
+       where jc.parent_id is null;
+       
+       
+select channel_id from jc_channel jc 
+       inner join jc_model jm
+       on jc.model_id = jm.model_id
+       where jc.parent_id is null
+             and jm.model_name = '小说';
+             
+update jc_channel_ext 
+       set tpl_channel = '/WEB-INF/t/cms/www/fiction01/channel/fiction_list.html'
+where channel_id in (
+      select channel_id from jc_channel jc 
+       inner join jc_model jm
+       on jc.model_id = jm.model_id
+       where jc.parent_id is null
+             and jm.model_name = '小说'
+);
