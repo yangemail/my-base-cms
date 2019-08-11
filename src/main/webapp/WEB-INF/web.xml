@@ -19,6 +19,11 @@
 		</param-value>
 	</context-param>
 	<filter>
+		<!-- 
+			注意：这里的Filter-name要和shiro-context.xml中的ShiroFilterFactoryBean的bean的id一致，
+			这个shiroFilter才是真正执行业务功能（它有一个静态内部类SpringShiroFilter真正执行Filter功能）
+			你整合SpringSecurity也是同样的道理 
+		-->
 		<filter-name>shiroFilter</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 		<init-param>

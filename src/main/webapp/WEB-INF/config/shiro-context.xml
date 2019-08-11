@@ -6,11 +6,16 @@
 	default-lazy-init="true">
 	
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- 安全管理器 -->
 		<property name="securityManager" ref="securityManager" />
+		<!-- 认证登录地址 -->
 		<property name="loginUrl" value="/login.jspx" />
+		<!-- 成功跳转地址 -->
 		<property name="successUrl" value="/" />
+		<!-- ShiroFilterFactoryBean中的Map类型属性filters -->
 		<property name="filters">
 			<util:map>
+				<!-- 这里形成了覆盖 -->
 				<entry key="authc" value-ref="authcFilter" />
 				<entry key="user" value-ref="userFilter" />
 				<entry key="logout" value-ref="logoutFilter" />

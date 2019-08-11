@@ -14,7 +14,11 @@
 	    <prudent>false</prudent>  
 	</appender>  
 	<root>
-		<level value="ERROR" />
+		<!--
+			调试时打开 DEBUG 模式 		
+			<level value="ERROR" /> 
+		-->
+		<level value="DEBUG"/>
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
