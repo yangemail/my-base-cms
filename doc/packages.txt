@@ -1,0 +1,137 @@
+*** src/main/java ***
+-- com/jeecms: java源码 （详情见下面）
+-- ehcache.xml: ehcache缓存属性文件
+-- fckeditor.properties: fck富文编编辑器属性文件
+-- IKAnalyzer.cfg.xml: lucene全文检索分词器配置文件
+-- logback.xml: logback日志配置
+
+****** com.jeecms.cms ******
+---- action + api: 主要包括两个部分：a.请求接口	b.自定义freemarker模板标签解析类
+---- annotation: (New in V9.3)
+---- api: (见上面)
+---- dao: 数据访问对象接口和实现
+---- entity: 数据库表对象模型和hibernate映射文件
+---- lucene: lucene检索相关，包括索引的维护和模板标签解析等
+---- manager + service: 业务功能逻辑：包括数据库和缓存的操作等
+---- service: （见上面）
+---- staticpage: 静态页面相关操作：从 Controller 到 Service 到 Dao 都统一放在了这个包里面
+---- statistic: 统计相关操作
+---- task: 定时任务包：包括定时任务的加载和定时任务类等
+---- template: 自动模板生成包：自动生成代码和模板页面等
+---- ueditor: 百度编辑器自定义优化和配置相关操作
+---- web: 全局的拦截器，全局线程变量工具，权限标签解析类和自定义异常
+---- webservices: webservice的远程方法调用
+>>>> Constants.java
+>>>> Install.java
+>>>> InstallServlet.java
+>>>> UpdateServlet.java 
+
+****** com.jeecms.common ******
+---- captcha: 验证码接口
+---- dic: lucene关键词相关文件
+---- email: 邮件发送工具包
+---- fck: 富文本编辑器相关功能实现类
+---- file: 包括文件名生成类和文件包装类
+---- hibernate4: hibernate相关工具类：包括Dao基类，分页，排序等
+---- image: 图片相关工具包：包括图片缩小等工具类
+---- ipseek: ip相关操作
+---- lucene: 里面就一个从BigDecimal到String的转换类
+---- office: Word转Html工具类
+---- page: 分页工具包
+---- security: 定义安全相关异常和密码加密工具
+---- ueditor: 百度编辑器相关
+---- upload: 文件上传和存储相关
+---- util: 各种工具类
+---- web: 里面东西很杂，有缓存相关，有模板相关，还有过滤器相关，等。** 这个包比较重要
+
+****** com.jeecms.core ******
+---- action.front: 一些请求接口，常用的一个是前台登录接口
+---- dao: 系统，用户，角色，认证，权限相关的数据访问对象和其实现
+---- entity: 系统，用户，角色，认证，权限相关的库表对象和映射配置文件
+---- manager: 系统，用户，角色，认证，权限相关的业务功能逻辑
+---- security: shiro安全相关
+---- tpl: 模板文件相关
+---- web: web全局相关工具和定义
+
+****** com.jeecms.plug ******
+---- store
+---- weixin
+
+##################################################################################
+
+*** webapp ***
+-- r: 前台使用资源配置
+-- res: 后台使用资源配置
+-- thirdparty: 第三方库
+-- u: 上传文件位置
+-- WEB-INF: 受保护的资源位置
+-- wenku: 文档存放位置
+
+****** r/ ******
+---- adf: (depreciated - has been removed from scope in v9.3)
+---- ckplayer: ckplayer视频播放器插件
+---- design: 网页背景样式相关
+---- jqueryUI: Jquery提供的UI交互的类库
+---- raty: JQuery评分插件
+---- smilies: 表情包
+---- www: 前后台，移动端相关的css, js, image
+---- xcConfirm: (new in v9.3)
+
+****** /res ******
+---- common: 一些公共css, js, image
+---- jeecms: 后台功能相关css, js, image
+---- jqueryUI: JQuery提供的UI交互插件
+---- plug: 一些插件。>> 这里只有一个echarts用于数据可视化图表
+---- zclip: JQuery页面复制黏贴插件
+---- ztree: JQuery树插件
+
+****** /sql ******
+
+****** /thridparty ******
+---- ckeditor: fck富文本编辑器（Fckeditor自从升级到3.0版本以后就更名为ckeditor了）
+---- flexpaper: 文档在线浏览组件
+---- My97DatePicker: 日期控件
+---- pdfjs
+---- swfupload: 文件上传插件
+---- ueditor: 百度富文本编辑器
+
+****** /u ******
+
+****** /WEB-INF ******
+---- attachments
+---- cache: 缓存文件位置
+---- cert
+---- classes:
+---- common:  一些前后台共用html文件
+---- config: {{ 项目的大部分配置文件都在这里，后面会单独拿出来说 }}
+---- directive: freemarker标签模板
+---- error: 各种错误页面
+---- ftl: freemarker各种组件模板文件，国际化的spring.ftl也在这里面
+---- ipseek: 利用QQWry.Dat实现IP地址高效检索
+---- jeecms_sys: (depreciated - has been removed from scope in v9.3)
+---- languages: 国际化属性文件位置
+---- lib: 项目依赖jar
+---- lucene: lucene索引文件位置
+---- plug: 插件：这里是一个plugStore.zip的压缩包
+---- t: 前台，移动端相关页面+前台模板文件
+
+****** /WEB-INF/config ******
+---- jeecms/jeecms.properties: 属性文件，包括一些自定义标签键值对，国际化属性定位键值对，等
+---- jeecms/jeecms-context.xml: 配置了大量的业务Bean，包括许多标签解析类，Service, Mng类（未使用scan扫描注解）
+---- jeecms/jeecms-servlet-admin-api-action.xml: 配置后台相关controller层的各种Bean（未使用scan扫描注解）
+---- jeecms/jeecms-servlet-front-action.xml: 配置前台controller相关Bean（未使用scan扫描注解）
+---- jeecms/jeecms-servlet-member-api-action.xml:
+---- jeecms/jeecms-context.xml: 配置系统相关Bean，包括一些Dao实现类，标签解析类，mng类等
+---- plug: 一些看你需不需要的额外功能：包括商店和微信扩展功能（这里可以忽略不计）
+---- applicaiton-context.xml: Spring项目中主配置文件，父IOC容器，启动即加载
+---- cache-context.xml: 配置了大量的缓存工厂Bean
+---- captcha-context.xml: 验证码相关Bean配置
+---- classes-error.properties: 与国际化包下的配置文件配合找到对应键的对应值：显示数据完整相关错误提示信息
+---- ehcache.xml: 默认缓存配置和自定义缓存配置
+---- firewall.properties: 防火墙属性配置文件
+---- jdbc.properties: 数据库连接参数属性文件
+---- jeecms-servlet-admin-api.xml: CMS后台相关配置文件
+---- jeecms-servlet-front.xml: CMS前台相关配置文件
+---- jeecms-servlet-member-api.xml: 
+---- quartz-task.xml: quartz相关配置
+---- shiro-context.xml: shiro权限控制相关配置
