@@ -71,7 +71,7 @@
 	<mailapi.version>1.6.0</mailapi.version>
 	<json.version>20171018</json.version>
 	<mysql.version>5.1.44</mysql.version>
-	<quartz.version>2.1.7</quartz.version>
+	<quartz.version>2.3.2</quartz.version>
 	<jta.verson>1.1</jta.verson>
 	<openoffice.version>3.2.1</openoffice.version>
 	<logback.version>1.2.3</logback.version>
