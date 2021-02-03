@@ -37,7 +37,7 @@
 	<activation.version>1.0.2</activation.version>
 	<antlr.version>2.7.7</antlr.version>
 	<aopalliance.version>1.0</aopalliance.version>
-	<ant.version>1.8.4</ant.version>
+	<ant.version>1.10.9</ant.version>
 	<aspectj.version>1.8.12</aspectj.version>
 	<axis.version>1.4</axis.version>
 	<c3p0.version>0.9.5.2</c3p0.version>
